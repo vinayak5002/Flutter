@@ -13,7 +13,7 @@ class FirstPage extends StatelessWidget {
         body: Center(
           child: Column(children: [
             Text('I am in the center'),
-            ElevatedButton(onPressed: () {Navigator.pushNamed(context, MyRoutes.login);}, child: Text('click'))
+            ElevatedButton(onPressed: () {}, child: Text('click'))
           ],),
         ),
     );
