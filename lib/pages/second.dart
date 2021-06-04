@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/pages/login.dart';
 
 class FirstPage extends StatelessWidget {
   @override
@@ -6,11 +7,7 @@ class FirstPage extends StatelessWidget {
 
   }
   Widget build(BuildContext context) {
-    return MaterialApp(
-      themeMode: ThemeMode.dark,
-      theme: ThemeData(primarySwatch: Colors.indigo),
-      darkTheme: ThemeData(brightness: Brightness.dark),
-      home: Scaffold(
+    return Scaffold(
         appBar: AppBar(
           title: Text('My App'),
           centerTitle: true,
@@ -21,7 +18,6 @@ class FirstPage extends StatelessWidget {
             ElevatedButton(onPressed: fuc, child: Text('click'))
           ],),
         ),
-      ),
     );
   }
 }
