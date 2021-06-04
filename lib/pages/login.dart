@@ -2,7 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/utils/routes.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
+  @override
+  _LoginPageState createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+  static String name="";
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -12,6 +18,7 @@ class LoginPage extends StatelessWidget {
         fontFamily: GoogleFonts.lato().fontFamily,
         ),
       darkTheme: ThemeData(brightness: Brightness.dark,fontFamily: GoogleFonts.lato().fontFamily),
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
           title: Text("Login Page"),
@@ -24,9 +31,9 @@ class LoginPage extends StatelessWidget {
                 children: [
                   Image.asset("assets/images/login_icon.png", height: 80, width: 80,),
                   Text(
-                    "Login",
+                    "Welcome $name",
                     style: TextStyle(
-                      fontSize: 40,
+                      fontSize: 30,
                       fontWeight: FontWeight.w800
                     ),
                   ),
@@ -41,6 +48,10 @@ class LoginPage extends StatelessWidget {
                         hintText: "Enter user name",
                         labelText: "User name"
                       ),
+                      onChanged: (value){
+                        name = value;
+                        setState(() {});
+                      },
                     ),
                     TextFormField(
                       obscureText: true,
@@ -50,6 +61,7 @@ class LoginPage extends StatelessWidget {
                       ),
                     ),
                     SizedBox(height:20),
+                    
                     ElevatedButton(onPressed: () {
                       Navigator.pushNamed(context, MyRoutes.home);
                       print("clicked");
@@ -58,7 +70,6 @@ class LoginPage extends StatelessWidget {
                     style: ElevatedButton.styleFrom(
                     padding: EdgeInsets.symmetric(vertical: 15, horizontal: 25),
                     ),
-                    
                     ),
                   ],
                 ),

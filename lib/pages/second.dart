@@ -11,10 +11,13 @@ class FirstPage extends StatelessWidget {
           centerTitle: true,
         ),
         body: Center(
-          child: Column(children: [
-            Text('I am in the center'),
-            ElevatedButton(onPressed: () {}, child: Text('click'))
-          ],),
+          child: Text(
+            "Main Page.",
+            style: TextStyle(
+              fontSize: 30,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
         ),
     );
   }
