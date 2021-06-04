@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/pages/login.dart';
+import 'package:flutter_application_1/utils/routes.dart';
 
 class FirstPage extends StatelessWidget {
   @override
-  void fuc(){
-
-  }
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
@@ -15,7 +13,7 @@ class FirstPage extends StatelessWidget {
         body: Center(
           child: Column(children: [
             Text('I am in the center'),
-            ElevatedButton(onPressed: fuc, child: Text('click'))
+            ElevatedButton(onPressed: () {Navigator.pushNamed(context, MyRoutes.login);}, child: Text('click'))
           ],),
         ),
     );
