@@ -14,6 +14,7 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      color: Colors.white,
       themeMode: ThemeMode.light,
       theme: ThemeData(
         primarySwatch: Colors.purple,
@@ -22,13 +23,17 @@ class _LoginPageState extends State<LoginPage> {
       darkTheme: ThemeData(brightness: Brightness.dark,fontFamily: GoogleFonts.lato().fontFamily),
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        appBar: AppBar(
-          title: Text("Login Page"),
-          centerTitle: true,
-        ),
+        // appBar: AppBar(
+        //   backgroundColor: Colors.white,
+        //   title: Text("Login Page"),
+        //   centerTitle: true,
+        // ),
         body: SingleChildScrollView(
           child: Column(
             children: [
+              SizedBox(
+                height: 80,
+              ),
               Row(
                 children: [
                   Image.asset("assets/images/login_icon.png", height: 80, width: 80,),
@@ -64,45 +69,33 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                     SizedBox(height:20),
 
-                    InkWell(
-                      onTap: () async {
-                        setState(() {
+                    Material(
+                      color: Colors.purple,
+                      borderRadius: BorderRadius.circular(12),
+                      child: InkWell(
+                        onTap: () async {
+                          setState(() { 
                           but = true;
-                        });
-                        await Future.delayed(Duration(seconds: 1));
-                        Navigator.pushNamed(context, MyRoutes.home);
-                      },
-                      child: AnimatedContainer(
-                      duration: Duration(seconds: 1),
-                      alignment: Alignment.center,
-                      width: but ? 50 : 150,
-                      height: 50,
-                      child: but ? Icon(Icons.done, color: Colors.white) : Text(
-                        "Login",
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold
+                          });
+                          await Future.delayed(Duration(seconds: 1));
+                          await Navigator.pushNamed(context, MyRoutes.home);
+                          setState(() {
+                            but = false;
+                          });
+                        },
+                        child: AnimatedContainer(
+                          duration: Duration(seconds: 1),
+                          width: 150,
+                          height: 50,
+                          child: but ? Icon(Icons.done, color: Colors.white,) : Text(
+                            "Login",
+                            style: TextStyle(fontSize: 20, color: Colors.white),
+                          ),
+                          alignment: Alignment.center,
                         ),
                       ),
-                      decoration: BoxDecoration(
-                      color: Colors.purple,
-                      // shape: but ? BoxShape.circle : BoxShape.rectangle
-                      borderRadius: BorderRadius.circular( but ? 50 : 12),
-                      ),
                     ),
-                    )
-                    
-                    // ElevatedButton(
-                    //   onPressed: () {
-                    //     Navigator.pushNamed(context, MyRoutes.home);
-                    //     print("clicked");
-                    //   },
-                    //   child: Text("Login",style: TextStyle(fontSize: 20),),
-                    //   style: ElevatedButton.styleFrom(
-                    //   padding: EdgeInsets.symmetric(vertical: 15, horizontal: 25),
-                    //   ),
-                    // ),
+
                   ],
                 ),
               ),
