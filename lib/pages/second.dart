@@ -8,10 +8,13 @@ class FirstPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text('My App'),
+          elevation: 0.0,
+          backgroundColor: Colors.black12,
+          title: Text('Shophold'),
           centerTitle: true,
         ),
         drawer: MyDrawer(),
+        // backgroundColor: Colors.black12,
         body: Center(
           child: Text(
             "Main Page.",

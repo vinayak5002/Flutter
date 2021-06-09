@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/pages/second.dart';
+import 'package:flutter_application_1/main.dart';
 import 'package:flutter_application_1/utils/routes.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -14,13 +14,10 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      color: Colors.white,
-      themeMode: ThemeMode.light,
-      theme: ThemeData(
-        primarySwatch: Colors.purple,
-        fontFamily: GoogleFonts.lato().fontFamily,
-        ),
-      darkTheme: ThemeData(brightness: Brightness.dark,fontFamily: GoogleFonts.lato().fontFamily),
+      // color: Colors.white,
+      themeMode: ThemeMode.dark,
+      theme: ThemeData(primarySwatch: Colors.indigo),
+      darkTheme: ThemeData(brightness: Brightness.dark),
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         // appBar: AppBar(
@@ -34,17 +31,13 @@ class _LoginPageState extends State<LoginPage> {
               SizedBox(
                 height: 80,
               ),
-              Row(
-                children: [
-                  Image.asset("assets/images/login_icon.png", height: 80, width: 80,),
-                  Text(
-                    "Welcome $name",
-                    style: TextStyle(
-                      fontSize: 30,
-                      fontWeight: FontWeight.w800
-                    ),
-                  ),
-                ],
+              Image.asset('assets/images/logf.png',width: 200,height: 200,),
+              Text(
+                "Login",
+                textScaleFactor: 2.6,
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                ),
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(vertical :14.0, horizontal: 40),
@@ -78,7 +71,7 @@ class _LoginPageState extends State<LoginPage> {
                           but = true;
                           });
                           await Future.delayed(Duration(seconds: 1));
-                          await Navigator.pushNamed(context, MyRoutes.home);
+                          Navigator.pop(context);
                           setState(() {
                             but = false;
                           });
