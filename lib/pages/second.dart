@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/pages/login.dart';
-import 'package:flutter_application_1/utils/routes.dart';
+import 'package:flutter_application_1/widgets/drawer.dart';
+
 
 class FirstPage extends StatelessWidget {
   @override
@@ -10,6 +11,7 @@ class FirstPage extends StatelessWidget {
           title: Text('My App'),
           centerTitle: true,
         ),
+        drawer: MyDrawer(),
         body: Center(
           child: Text(
             "Main Page.",
