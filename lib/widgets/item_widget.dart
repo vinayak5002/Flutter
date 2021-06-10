@@ -12,13 +12,17 @@ class ItemWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(8),
+      padding: const EdgeInsets.fromLTRB(6,3,6,3),
       child: Card(
-        child: ListTile(
-        leading: Image.asset(item.imageurl, width: 80,),
-        title: Text(item.name, textScaleFactor: 1.3,),
-        subtitle: Text(item.desc),
-        trailing: Text("\$ ${item.price}", textScaleFactor: 1.3,style:TextStyle(fontWeight: FontWeight.bold,color:Colors.blue),),
+        color: Colors.indigo[200],
+        child: Padding(
+          padding: const EdgeInsets.all(4.0),
+          child: ListTile(
+          leading: Image.asset(item.imageurl, width: 80,),
+          title: Text(item.name, textScaleFactor: 1.3,style: TextStyle(color: Colors.white),),
+          subtitle: Text(item.desc,style: TextStyle(color: Colors.white),),
+          trailing: Text("\$ ${item.price}", textScaleFactor: 1.3,style:TextStyle(fontWeight: FontWeight.bold,color:Colors.white),),
+          ),
         ),
       ),
     );
