@@ -15,7 +15,7 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     return MaterialApp(
       // color: Colors.white,
-      themeMode: ThemeMode.dark,
+      themeMode: ThemeMode.light,
       theme: ThemeData(primarySwatch: Colors.indigo),
       darkTheme: ThemeData(brightness: Brightness.dark),
       debugShowCheckedModeBanner: false,
@@ -31,7 +31,7 @@ class _LoginPageState extends State<LoginPage> {
               SizedBox(
                 height: 80,
               ),
-              Image.asset('assets/images/logf.png',width: 200,height: 200,),
+              Image.asset('assets/images/logb (2).png',width: 200,height: 200,),
               Text(
                 "Login",
                 textScaleFactor: 2.6,
@@ -63,7 +63,7 @@ class _LoginPageState extends State<LoginPage> {
                     SizedBox(height:20),
 
                     Material(
-                      color: Colors.purple,
+                      color: Colors.indigo,
                       borderRadius: BorderRadius.circular(12),
                       child: InkWell(
                         onTap: () async {

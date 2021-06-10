@@ -11,8 +11,16 @@ class ItemWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListTile(
-      leading: Image.asset(item.imageurl),
+    return Padding(
+      padding: const EdgeInsets.all(8),
+      child: Card(
+        child: ListTile(
+        leading: Image.asset(item.imageurl, width: 80,),
+        title: Text(item.name, textScaleFactor: 1.3,),
+        subtitle: Text(item.desc),
+        trailing: Text("\$ ${item.price}", textScaleFactor: 1.3,style:TextStyle(fontWeight: FontWeight.bold,color:Colors.blue),),
+        ),
+      ),
     );
   }
 }

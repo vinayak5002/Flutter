@@ -18,7 +18,7 @@ class FirstPage extends StatelessWidget {
           itemCount: CatalogModel.items.length,
           itemBuilder: (context, index) {
             return ItemWidget(
-              item: CatalogModel.items[index]
+              item: CatalogModel.items[index],
             );
           },
         )
