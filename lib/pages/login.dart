@@ -78,7 +78,7 @@ class _LoginPageState extends State<LoginPage> {
                           but = true;
                           });
                           await Future.delayed(Duration(seconds: 1));
-                          await Navigator.pushNamed(context, MyRoutes.home);
+                          Navigator.pop(context);
                           setState(() {
                             but = false;
                           });

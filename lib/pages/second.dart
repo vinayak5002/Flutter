@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/models/model.dart';
 import 'package:flutter_application_1/pages/login.dart';
 import 'package:flutter_application_1/widgets/drawer.dart';
+import 'package:flutter_application_1/widgets/item_widget.dart';
 
 
 class FirstPage extends StatelessWidget {
@@ -12,15 +14,14 @@ class FirstPage extends StatelessWidget {
           centerTitle: true,
         ),
         drawer: MyDrawer(),
-        body: Center(
-          child: Text(
-            "Main Page.",
-            style: TextStyle(
-              fontSize: 30,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-        ),
+        body: ListView.builder(
+          itemCount: CatalogModel.items.length,
+          itemBuilder: (context, index) {
+            return ItemWidget(
+              item: CatalogModel.items[index]
+            );
+          },
+        )
     );
   }
 }
