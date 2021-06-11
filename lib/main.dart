@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'dart:convert';
 import 'package:flutter_application_1/utils/routes.dart';
 import 'pages/second.dart';
 import 'package:flutter_application_1/pages/login.dart';
@@ -7,7 +9,25 @@ void main(){
   runApp(MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
+  @override
+  _MyAppState createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+
+  @override
+  void initState(){
+    super.initState();
+    loadData();
+  }
+
+  loadData() async {
+    var catJson = await rootBundle.loadString("assets/files/cat.json");
+    var decodedData = jsonDecode(catJson);
+    var productsList = decodedData["products"];
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

@@ -18,10 +18,10 @@ class ItemWidget extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.all(4.0),
           child: ListTile(
-          leading: Image.asset(item.imageurl, width: 80,),
-          title: Text(item.name, textScaleFactor: 1.3,style: TextStyle(color: Colors.white),),
-          subtitle: Text(item.desc,style: TextStyle(color: Colors.white),),
-          trailing: Text("\$ ${item.price}", textScaleFactor: 1.3,style:TextStyle(fontWeight: FontWeight.bold,color:Colors.white),),
+            leading: Image.asset(item.imageurl, width: 80,),
+            title: Text(item.name, textScaleFactor: 1.3,style: TextStyle(color: Colors.white),),
+            subtitle: Text(item.desc,style: TextStyle(color: Colors.white),),
+            trailing: Text("\$ ${item.price}", textScaleFactor: 1.3,style:TextStyle(fontWeight: FontWeight.bold,color:Colors.white),),
           ),
         ),
       ),
