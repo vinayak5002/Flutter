@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/pages/second.dart';
+import 'package:flutter_application_1/main.dart';
 import 'package:flutter_application_1/utils/routes.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -14,32 +14,30 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      // color: Colors.white,
       themeMode: ThemeMode.light,
-      theme: ThemeData(
-        primarySwatch: Colors.purple,
-        fontFamily: GoogleFonts.lato().fontFamily,
-        ),
-      darkTheme: ThemeData(brightness: Brightness.dark,fontFamily: GoogleFonts.lato().fontFamily),
+      theme: ThemeData(primarySwatch: Colors.indigo),
+      darkTheme: ThemeData(brightness: Brightness.dark),
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        appBar: AppBar(
-          title: Text("Login Page"),
-          centerTitle: true,
-        ),
+        // appBar: AppBar(
+        //   backgroundColor: Colors.white,
+        //   title: Text("Login Page"),
+        //   centerTitle: true,
+        // ),
         body: SingleChildScrollView(
           child: Column(
             children: [
-              Row(
-                children: [
-                  Image.asset("assets/images/login_icon.png", height: 80, width: 80,),
-                  Text(
-                    "Welcome $name",
-                    style: TextStyle(
-                      fontSize: 30,
-                      fontWeight: FontWeight.w800
-                    ),
-                  ),
-                ],
+              SizedBox(
+                height: 80,
+              ),
+              Image.asset('assets/images/logb (2).png',width: 200,height: 200,),
+              Text(
+                "Login",
+                textScaleFactor: 2.6,
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                ),
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(vertical :14.0, horizontal: 40),
@@ -64,45 +62,32 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                     SizedBox(height:20),
 
-                    InkWell(
-                      onTap: () async {
-                        setState(() {
+                    Material(
+                      color: Colors.indigo,
+                      borderRadius: BorderRadius.circular(12),
+                      child: InkWell(
+                        onTap: () async {
+                          setState(() { 
                           but = true;
-                        });
-                        await Future.delayed(Duration(seconds: 1));
-                        Navigator.pushNamed(context, MyRoutes.home);
-                      },
-                      child: AnimatedContainer(
-                      duration: Duration(seconds: 1),
-                      alignment: Alignment.center,
-                      width: but ? 50 : 150,
-                      height: 50,
-                      child: but ? Icon(Icons.done, color: Colors.white) : Text(
-                        "Login",
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold
+                          });
+                          await Future.delayed(Duration(seconds: 1));
+                          Navigator.pop(context);
+                          setState(() {
+                            but = false;
+                          });
+                        },
+                        child: AnimatedContainer(
+                          duration: Duration(seconds: 1),
+                          width: 150,
+                          height: 50,
+                          child: but ? Icon(Icons.done, color: Colors.white,) : Text(
+                            "Login",
+                            style: TextStyle(fontSize: 20, color: Colors.white),
+                          ),
+                          alignment: Alignment.center,
                         ),
                       ),
-                      decoration: BoxDecoration(
-                      color: Colors.purple,
-                      // shape: but ? BoxShape.circle : BoxShape.rectangle
-                      borderRadius: BorderRadius.circular( but ? 50 : 12),
-                      ),
                     ),
-                    )
-                    
-                    // ElevatedButton(
-                    //   onPressed: () {
-                    //     Navigator.pushNamed(context, MyRoutes.home);
-                    //     print("clicked");
-                    //   },
-                    //   child: Text("Login",style: TextStyle(fontSize: 20),),
-                    //   style: ElevatedButton.styleFrom(
-                    //   padding: EdgeInsets.symmetric(vertical: 15, horizontal: 25),
-                    //   ),
-                    // ),
                   ],
                 ),
               ),
