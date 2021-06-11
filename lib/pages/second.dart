@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/models/model.dart';
 import 'package:flutter_application_1/pages/login.dart';
@@ -10,8 +11,24 @@ class FirstPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text('My App'),
+          elevation: 0.0,
+          iconTheme: IconThemeData(color: Colors.indigo),
+          backgroundColor: Colors.white,
+          title: Text(
+            'Shophold',
+            textScaleFactor: 1.6,
+            style: TextStyle(
+            color: Colors.indigo,
+            fontWeight: FontWeight.bold,
+            )
+          ),
           centerTitle: true,
+          actions: [
+            Padding(
+              padding: const EdgeInsets.fromLTRB(0,0,6,0),
+              child: Icon(CupertinoIcons.cart),
+            )
+          ],
         ),
         drawer: MyDrawer(),
         body: ListView.builder(

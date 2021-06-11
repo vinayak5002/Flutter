@@ -20,6 +20,7 @@ class _LoginPageState extends State<LoginPage> {
       darkTheme: ThemeData(brightness: Brightness.dark),
       debugShowCheckedModeBanner: false,
       home: Scaffold(
+        backgroundColor: Colors.white,
         // appBar: AppBar(
         //   backgroundColor: Colors.white,
         //   title: Text("Login Page"),
@@ -31,7 +32,7 @@ class _LoginPageState extends State<LoginPage> {
               SizedBox(
                 height: 80,
               ),
-              Image.asset('assets/images/logb (2).png',width: 200,height: 200,),
+              Image.asset('assets/images/hey.jpg',width: 200,height: 200,),
               Text(
                 "Login",
                 textScaleFactor: 2.6,
