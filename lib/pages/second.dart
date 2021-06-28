@@ -56,11 +56,25 @@ class _FirstPageState extends State<FirstPage> {
           ],
         ),
         drawer: MyDrawer(),
-        body: ListView.builder(
+        body: GridView.builder(
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
           itemCount: CatalogModel.items.length,
-          itemBuilder: (context, index) {
-            return ItemWidget(
-              item: CatalogModel.items[index],
+          itemBuilder: (context, index){
+            final item = CatalogModel.items[index];
+            return Card(
+              margin: EdgeInsets.fromLTRB(5,5,5,5),
+              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+              color: Colors.indigo[200],
+              child: GridTile(
+                header: Container(
+                  padding: EdgeInsets.all(5),
+                  decoration: BoxDecoration(
+                  ),
+                  child: Text(item.name, style: TextStyle(color: Colors.indigo[800]),textScaleFactor: 1.5,)
+                ),
+                child: Image.asset(item.imageurl),
+                footer: Text("\$ ${item.price}", style: TextStyle(color: Colors.indigo[900], fontWeight: FontWeight.bold),textScaleFactor: 1.5,),
+              ),
             );
           },
         )
