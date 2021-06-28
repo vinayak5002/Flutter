@@ -15,19 +15,6 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-
-  @override
-  void initState(){
-    super.initState();
-    loadData();
-  }
-
-  loadData() async {
-    var catJson = await rootBundle.loadString("assets/files/cat.json");
-    var decodedData = jsonDecode(catJson);
-    var productsList = decodedData["products"];
-  }
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
