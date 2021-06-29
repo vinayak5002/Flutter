@@ -35,35 +35,59 @@ class _FirstPageState extends State<FirstPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          elevation: 0.0,
-          iconTheme: IconThemeData(color: Colors.indigo),
-          backgroundColor: Colors.white,
-          title: Text(
-            'Shophold',
-            textScaleFactor: 1.6,
-            style: TextStyle(
-            color: Colors.indigo,
-            fontWeight: FontWeight.bold,
-            )
+        body: SafeArea(
+          child: Container(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(24.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Row(
+                        children: [
+                          Image.asset("assets/images/cart.png",width: 60,),
+                          SizedBox(width:10),
+                          Text(
+                            "ShopHold",
+                            style: TextStyle(
+                              color: Colors.indigo[800],
+                            ),
+                            textScaleFactor: 3,
+                          ),
+                        ],
+                      ),
+                      SizedBox(height: 20),
+                      Text(
+                        "Trending Items",
+                        style: TextStyle(
+                          color: Colors.indigo[900],
+                        ),
+                        textScaleFactor: 2,
+                      ),
+                    ],
+                  ),
+                ),
+
+                Expanded(
+                  child: SingleChildScrollView(
+                  scrollDirection: Axis.vertical,
+                    child: ListView.builder(
+                    shrinkWrap: true,
+                    itemCount: CatalogModel.items.length,
+                    itemBuilder: (context, index) {
+                      return ItemWidget(
+                        item: CatalogModel.items[index],
+                      );
+                    }
+                  ),
+                    ),
+                )
+              ],
+            ),
           ),
-          centerTitle: true,
-          actions: [
-            Padding(
-              padding: const EdgeInsets.fromLTRB(0,0,6,0),
-              child: Icon(CupertinoIcons.cart),
-            )
-          ],
         ),
-        drawer: MyDrawer(),
-        body: ListView.builder(
-          itemCount: CatalogModel.items.length,
-          itemBuilder: (context, index) {
-            return ItemWidget(
-              item: CatalogModel.items[index],
-            );
-          },
-        )
     );
   }
 }
