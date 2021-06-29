@@ -71,9 +71,7 @@ class _FirstPageState extends State<FirstPage> {
                 ),
 
                 Expanded(
-                  child: SingleChildScrollView(
-                  scrollDirection: Axis.vertical,
-                    child: ListView.builder(
+                  child: ListView.builder(
                     shrinkWrap: true,
                     itemCount: CatalogModel.items.length,
                     itemBuilder: (context, index) {
@@ -82,7 +80,6 @@ class _FirstPageState extends State<FirstPage> {
                       );
                     }
                   ),
-                    ),
                 )
               ],
             ),
